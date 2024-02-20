@@ -6,4 +6,10 @@ public partial class HomeScreen : ContentPage
 	{
 		InitializeComponent();
 	}
+
+	private async void OnTap(object sender, TappedEventArgs e)
+	{
+        await Navigation.PushAsync(new DetaljiFilmaPage());
+    }
+
 }

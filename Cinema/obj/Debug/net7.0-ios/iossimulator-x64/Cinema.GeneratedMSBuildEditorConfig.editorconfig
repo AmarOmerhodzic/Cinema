@@ -1,4 +1,8 @@
 is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
 build_property.TargetFramework = net7.0-ios
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = 
@@ -8,51 +12,59 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Cinema
-build_property.ProjectDir = C:\Users\orbic\source\repos\Cinema\Cinema\
+build_property.ProjectDir = C:\Users\User\Desktop\Cinema\Cinema\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 
-[C:/Users/orbic/source/repos/Cinema/Cinema/App.xaml]
+[C:/Users/User/Desktop/Cinema/Cinema/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Cinema.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[C:/Users/orbic/source/repos/Cinema/Cinema/MainPage.xaml]
+[C:/Users/User/Desktop/Cinema/Cinema/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Cinema.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[C:/Users/orbic/source/repos/Cinema/Cinema/Resources/Styles/Colors.xaml]
+[C:/Users/User/Desktop/Cinema/Cinema/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Cinema.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[C:/Users/orbic/source/repos/Cinema/Cinema/Resources/Styles/Styles.xaml]
+[C:/Users/User/Desktop/Cinema/Cinema/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Cinema.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[C:/Users/orbic/source/repos/Cinema/Cinema/VIews/auth/Login.xaml]
+[C:/Users/User/Desktop/Cinema/Cinema/VIews/auth/Login.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Cinema.VIews.auth.Login.xaml
 build_metadata.AdditionalFiles.TargetPath = VIews\auth\Login.xaml
 build_metadata.AdditionalFiles.RelativePath = VIews\auth\Login.xaml
 
-[C:/Users/orbic/source/repos/Cinema/Cinema/VIews/auth/Registracija.xaml]
+[C:/Users/User/Desktop/Cinema/Cinema/VIews/auth/Registracija.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Cinema.VIews.auth.Registracija.xaml
 build_metadata.AdditionalFiles.TargetPath = VIews\auth\Registracija.xaml
 build_metadata.AdditionalFiles.RelativePath = VIews\auth\Registracija.xaml
 
-[C:/Users/orbic/source/repos/Cinema/Cinema/VIews/HomeAdminScreen.xaml]
+[C:/Users/User/Desktop/Cinema/Cinema/VIews/DetaljiFilmaPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Cinema.VIews.DetaljiFilmaPage.xaml
+build_metadata.AdditionalFiles.TargetPath = VIews\DetaljiFilmaPage.xaml
+build_metadata.AdditionalFiles.RelativePath = VIews\DetaljiFilmaPage.xaml
+
+[C:/Users/User/Desktop/Cinema/Cinema/VIews/HomeAdminScreen.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Cinema.VIews.HomeAdminScreen.xaml
 build_metadata.AdditionalFiles.TargetPath = VIews\HomeAdminScreen.xaml
 build_metadata.AdditionalFiles.RelativePath = VIews\HomeAdminScreen.xaml
 
-[C:/Users/orbic/source/repos/Cinema/Cinema/VIews/HomeScreen.xaml]
+[C:/Users/User/Desktop/Cinema/Cinema/VIews/HomeScreen.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Cinema.VIews.HomeScreen.xaml
 build_metadata.AdditionalFiles.TargetPath = VIews\HomeScreen.xaml

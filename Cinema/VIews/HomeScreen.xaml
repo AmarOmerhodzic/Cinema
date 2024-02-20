@@ -8,5 +8,22 @@
             Text="Home"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+        <Frame BackgroundColor="#333333" Margin="10" Padding="10" CornerRadius="10">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnTap" />
+            </Frame.GestureRecognizers>
+            <StackLayout>
+                <Image Source="blackpanther.jpg" Aspect="AspectFill" HeightRequest="400" />
+                
+                <Label Text="Black Panther" FontSize="18" FontAttributes="Bold" />
+
+                <Label Text="Black Panther is a 2018 American superhero film based on the Marvel Comics character of the same name. Produced by Marvel Studios and distributed by Walt ..." FontSize="14" />
+                
+                <Label Text="Rating: 4.5/5" FontSize="14" />
+                
+                <Label Text="Genre: Action" FontSize="14" />
+            </StackLayout>
+        </Frame>
     </VerticalStackLayout>
 </ContentPage>
