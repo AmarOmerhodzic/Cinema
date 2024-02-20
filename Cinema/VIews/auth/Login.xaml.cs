@@ -30,7 +30,7 @@ public partial class Login : ContentPage
             if (korisnik.Uloga == Uloga.Admin)
             {
                 // Ako je uloga korisnika admin, preusmjeri ga na HomeAdmin
-                await Navigation.PushAsync(new HomeAdminScreen());
+                await Navigation.PushAsync(new Views.HomeAdminScreen());
             }
             else
             {
