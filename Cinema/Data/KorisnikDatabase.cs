@@ -19,6 +19,7 @@ namespace Cinema.Data
                 try
                 {
                     CreateTableResult result = await Database.CreateTableAsync<Korisnik>();
+                    await instance.InitializeAdminUser();
                 }
                 catch (Exception ex)
                 {
@@ -32,6 +33,23 @@ namespace Cinema.Data
         public KorisnikDatabase()
         {
             Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
+        }
+        public async Task InitializeAdminUser()
+        {
+            // Check if there are any admin users in the database
+            var adminUser = await Database.Table<Korisnik>().FirstOrDefaultAsync(x => x.Uloga == Uloga.Admin);
+
+            // If there is no admin user, insert one
+            if (adminUser == null)
+            {
+                var defaultAdmin = new Korisnik
+                {
+                    KorisnickoIme = "admin",
+                    Lozinka = "adminpass",
+                    Uloga = Uloga.Admin
+                };
+                await Database.InsertAsync(defaultAdmin);
+            }
         }
         public async Task<bool> RegistrirajKorisnika(Korisnik korisnik)
         {

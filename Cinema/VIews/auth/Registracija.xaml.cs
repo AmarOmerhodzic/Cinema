@@ -27,14 +27,14 @@ public partial class Registracija : ContentPage
             await DisplayAlert("Error", "Password and confirm password do not match.", "OK");
             return;
         }
-        Uloga uloga = UserRadioButton.IsChecked ? Uloga.Korisnik : Uloga.Admin;
+
         // Kreiranje novog korisnika
         Korisnik noviKorisnik = new Korisnik
         {
             KorisnickoIme = email,
             Lozinka = password,
             StanjeNaRacunu = 0, // Mozete postaviti inicijalno stanje racuna po potrebi
-            Uloga = uloga // Mozete postaviti ulogu korisnika po potrebi
+            Uloga = Uloga.Korisnik // Mozete postaviti ulogu korisnika po potrebi
         };
 
         // Dodavanje novog korisnika u bazu podataka

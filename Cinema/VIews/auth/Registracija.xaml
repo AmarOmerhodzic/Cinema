@@ -27,10 +27,6 @@
         IsPassword="True"
         HorizontalOptions="FillAndExpand" />
         
-        <StackLayout Orientation="Horizontal" Spacing="10">
-            <RadioButton x:Name="UserRadioButton" GroupName="UserType" Content="Korisnik" IsChecked="True" />
-            <RadioButton x:Name="AdminRadioButton" GroupName="UserType" Content="Admin" />
-        </StackLayout>
 
         <Button 
         Text="Register"
