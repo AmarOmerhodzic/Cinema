@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cinema.VIews.auth.Registracija"
+             Title="Registracija">
+    <VerticalStackLayout Spacing="20" Padding="20">
+        <Label 
+        Text="Register"
+        FontSize="24"
+        HorizontalOptions="Center" />
+
+        <Entry 
+        x:Name="EmailEntry"
+        Placeholder="Email"
+        Keyboard="Email"
+        HorizontalOptions="FillAndExpand" />
+
+        <Entry 
+        x:Name="PasswordEntry"
+        Placeholder="Password"
+        IsPassword="True"
+        HorizontalOptions="FillAndExpand" />
+
+        <Entry 
+        x:Name="ConfirmPasswordEntry"
+        Placeholder="Confirm Password"
+        IsPassword="True"
+        HorizontalOptions="FillAndExpand" />
+        
+        <StackLayout Orientation="Horizontal" Spacing="10">
+            <RadioButton x:Name="UserRadioButton" GroupName="UserType" Content="Korisnik" IsChecked="True" />
+            <RadioButton x:Name="AdminRadioButton" GroupName="UserType" Content="Admin" />
+        </StackLayout>
+
+        <Button 
+        Text="Register"
+        Clicked="OnRegisterClicked"
+        HorizontalOptions="FillAndExpand" />
+
+        <Button 
+        Text="Back to Login"
+        Clicked="OnBackToLoginClicked"
+        HorizontalOptions="FillAndExpand" />
+    </VerticalStackLayout>
+</ContentPage>
