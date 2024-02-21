@@ -3,7 +3,7 @@
   <PropertyGroup>
     <IsFirstTimeProjectOpen>False</IsFirstTimeProjectOpen>
     <ActiveDebugFramework>net7.0-android</ActiveDebugFramework>
-    <ActiveDebugProfile>Samsung SM-A405FN (Android 11.0 - API 30)</ActiveDebugProfile>
+    <ActiveDebugProfile>Xiaomi M2101K6G (Android 13.0 - API 33)</ActiveDebugProfile>
     <SelectedPlatformGroup>PhysicalDevice</SelectedPlatformGroup>
   </PropertyGroup>
   <ItemGroup>
@@ -35,6 +35,9 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="VIews\HomeScreen.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="VIews\AdminFilmSingle.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>
