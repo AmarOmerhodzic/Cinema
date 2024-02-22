@@ -1,0 +1,20 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cinema.Views.DodavanjeProjekcije"
+             Title="DodavanjeProjekcije">
+    <StackLayout>
+        <Label Text="Unesi Film ID" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
+        <Entry x:Name="FilmIdEntry" Placeholder="Film ID"/>
+
+        <Label Text="Unesi Datum i vrijeme projekcije" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
+        <DatePicker x:Name="DatumVrijemePicker" />
+
+        <Label Text="Unesi broj karata" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
+        <Entry x:Name="BrojKarataEntry" Placeholder="Broj karata"/>
+
+        <Label Text="Unesi cijenu" FontSize="Small" HorizontalOptions="Start" Padding="2" />
+        <Entry x:Name="CijenaEntry" Placeholder="Cijena"/>
+       
+        <Button Text="Save" Clicked="SaveButton_Click"/>
+    </StackLayout>
+</ContentPage>
