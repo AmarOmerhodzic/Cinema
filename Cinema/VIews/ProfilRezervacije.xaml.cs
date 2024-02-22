@@ -12,7 +12,6 @@ public partial class ProfilRezervacije : ContentPage
     private async void Logout(object sender, EventArgs e)
     {
         Preferences.Clear();
-        await Navigation.PopToRootAsync();
-        await Navigation.PushModalAsync(new Login());
+        Application.Current.MainPage = new NavigationPage(new Login());
     }
 }
