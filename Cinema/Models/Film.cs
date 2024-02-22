@@ -18,6 +18,5 @@ namespace Cinema.Models
         public int Trajanje { get; set; }
         public string Trailer { get; set; }
         public double Ocjena { get; set; }
-        public string Slika { get; set; }
     }
 }

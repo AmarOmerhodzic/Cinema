@@ -36,11 +36,11 @@
 
                                 <Label Text="{Binding Naziv}" FontSize="18" FontAttributes="Bold" />
 
-                                <Label Text="{Binding Opis}" FontSize="14" />
+                                <Label Text="{Binding Opis}" FontSize="14" LineBreakMode="TailTruncation" MaxLines="3"/>
 
-                                <Label Text="{Binding Ocjena}" FontSize="14" />
+                                <Label Text="{Binding Ocjena, StringFormat='Rating: {0}'}" FontSize="14" />
 
-                                <Label Text="{Binding Zanr}" FontSize="14" />
+                                <Label Text="{Binding Zanr, StringFormat='Genre: {0}'}" FontSize="14" />
                                 
                             </VerticalStackLayout>
                         </Frame>
