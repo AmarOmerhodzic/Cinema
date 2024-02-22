@@ -1,4 +1,4 @@
-﻿using Cinema.Data;
+﻿/*using Cinema.Data;
 using Cinema.Models;
 using Cinema.Views;
 using System;
@@ -13,7 +13,6 @@ namespace Cinema.ViewModels
 
         private string _imageUrl;
         private Film _film;
-        private Projekcija _projekcija;
 
         public string ImageUrl
         {
@@ -35,20 +34,11 @@ namespace Cinema.ViewModels
             }
         }
 
-        public Projekcija Projekcija
-        {
-            get { return _projekcija; }
-            set
-            {
-                _projekcija = value;
-                OnPropertyChanged();
-            }
-        }
+
         public ICommand SaveCommand { get; private set; }
         public ModelDodavanjeFilma()
         {
             Film = new Film();
-            Projekcija = new Projekcija();
             SaveCommand = new Command(async () => await SaveDataAsync());
         }
 
@@ -57,14 +47,12 @@ namespace Cinema.ViewModels
             try
             {
                 // Create a new instance of FilmDatabase and ProjekcijaDatabase
-                var filmDatabase = new FilmDatabase();
-                var projekcijaDatabase = new ProjekcijaDatabase();
+                var filmDatabase = new FilmDatabase(); // Assuming this is correctly configured
 
                 // Save the film and projection to the database
                 bool filmSaved = await filmDatabase.CreateFilm(Film);
-                bool projekcijaSaved = await projekcijaDatabase.CreateProjekciju(Projekcija);
 
-                if (filmSaved && projekcijaSaved)
+                if (filmSaved)
                 {
                     await Application.Current.MainPage.DisplayAlert("Success", "Data saved successfully!", "OK");
 
@@ -83,3 +71,4 @@ namespace Cinema.ViewModels
         }
     }
 }
+*/

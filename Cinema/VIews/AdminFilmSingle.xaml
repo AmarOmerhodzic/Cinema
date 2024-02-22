@@ -1,23 +1,35 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cinema.Views.NewPage1"
              Title="Admin Film Single">
     <VerticalStackLayout>
         <StackLayout Padding="10">
-            <Entry Placeholder="Paste Image URL" Text="{Binding ImageUrl}" />
-            <!-- Display image from URL -->
-            <Image x:Name="SelectedImage" Source="{Binding ImageUrl}"  />
+            <Label Text="Unesite podatke o filmu" FontSize="Large" HorizontalOptions="Center" Margin="15"/>
+            <Label Text="Unesite URL slike" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
+            <Entry Placeholder="Image url" Text="{Binding Film.Slika}"/>
+            <Label Text="Unesite naziv filma" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
             <Entry Placeholder="Naziv filma" Text="{Binding Film.Naziv}" />
+            <Label Text="Unesite Opis filma" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
             <Entry Placeholder="Opis filma" Text="{Binding Film.Opis}" />
-            <Entry Placeholder="Žanr" Text="{Binding Film.Zanr}" />
+            <Label Text="Unesite Žanr" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
+            <Picker Title="Žanr" SelectedItem="{Binding Film.Zanr, Mode=TwoWay}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Akcija</x:String>
+                        <x:String>Avantura</x:String>
+                        <x:String>Komedija</x:String>
+                        <x:String>Drama</x:String>
+                        <x:String>Horor</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Label Text="UnesiteTrajanje (min)" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
             <Entry Placeholder="Trajanje (min)" Keyboard="Numeric" Text="{Binding Film.Trajanje}" />
+            <Label Text="Unesite URL Trailera" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
             <Entry Placeholder="Trailer" Text="{Binding Film.Trailer}" />
+            <Label Text="Unesite Ocjene" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
             <Entry Placeholder="Ocjena" Keyboard="Numeric" Text="{Binding Film.Ocjena}" />
-            <Entry Placeholder="Cijena" Keyboard="Numeric" Text="{Binding Projekcija.Cijena}" />
-            <DatePicker Date="{Binding Projekcija.DatumVrijeme.Date}" />
-            <TimePicker Time="{Binding Projekcija.DatumVrijeme.TimeOfDay}" />
-            <Button Text="Spremi" Command="{Binding SaveCommand}" />
+            <Button Text="Spremi" Clicked="SaveButton_Clicked" />
         </StackLayout>
     </VerticalStackLayout>
 </ContentPage>
