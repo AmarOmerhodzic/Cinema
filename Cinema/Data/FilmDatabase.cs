@@ -105,5 +105,17 @@ namespace Cinema.Data
                 return false;
             }
         }
+        public async Task<int> UnosTest()
+        {
+            return await Database.ExecuteAsync("INSERT INTO Film (Naziv, Opis, Zanr, Trajanje, Trailer, Ocjena, Slika) VALUES (?, ?, ?, ?, ?, ?, ?);",
+                "Black Panther",
+                "Black Panther is a 2018 American superhero film based on the Marvel Comics character of the same name. Produced by Marvel Studios and distributed by Walt ...",
+                "Action",
+                120,
+                "https://www.youtube.com/embed/xjDjIWPwcPU?si=7DwhtSoQY6nu5qR_",
+                8.5,
+                "https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/black-panther-web.jpg");
+        }
+
     }
 }
