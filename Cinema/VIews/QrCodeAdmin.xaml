@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cinema.VIews.QrCodeAdmin"
+             Title="QrCodeAdmin">
+  
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+        <Frame BackgroundColor="White" CornerRadius="10" Padding="10" HeightRequest="300" WidthRequest="300" Margin="10">
+            <Image Source="camera.jpg" HeightRequest="100" HorizontalOptions="Center" />
+        </Frame>
+        <Button Text="Skeniraj QR kode" Clicked="OnScanButtonClicked" />
+    </StackLayout>
+</ContentPage>

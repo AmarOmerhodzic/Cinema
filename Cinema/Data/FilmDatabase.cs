@@ -32,7 +32,14 @@ namespace Cinema.Data
         public FilmDatabase()
         {
             Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
+            InitializeDatabase();
         }
+        private async void InitializeDatabase()
+        {
+            // Enable foreign key constraints
+            await Database.ExecuteAsync("PRAGMA foreign_keys = ON;");
+        }
+
         // Dohvati sve filmove
         public async Task<List<Film>> SviFilmovi()
         {
