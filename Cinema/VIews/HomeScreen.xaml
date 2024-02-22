@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cinema.VIews.HomeScreen"
+             x:Name="homeScreen"
              Title="Home">
-    
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Clicked="ProfilRoute">
             <ToolbarItem.IconImageSource>
@@ -22,40 +23,32 @@
             HorizontalOptions="Center" />
 
 
-            
-            <Frame BackgroundColor="#333333" Margin="15" Padding="20" CornerRadius="10">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnTap" />
-                </Frame.GestureRecognizers>
-                <StackLayout>
-                    <Image Source="https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_.jpg" Aspect="AspectFill" HeightRequest="400" />
+            <VerticalStackLayout>
+                <ListView x:Name="listView" Margin="10" RowHeight="550" SeparatorVisibility="None" ItemSelected="onSelect" VerticalScrollBarVisibility="Never">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            
+                            <Frame BackgroundColor="#333333" Margin="15" Padding="20" CornerRadius="10">
+                                
+                                    <VerticalStackLayout>
+                                <Image Source="{Binding Slika}" Aspect="AspectFill" HeightRequest="400" />
 
-                    <Label Text="Black Panther" FontSize="18" FontAttributes="Bold" />
+                                <Label Text="{Binding Naziv}" FontSize="18" FontAttributes="Bold" />
 
-                    <Label Text="Black Panther is a 2018 American superhero film based on the Marvel Comics character of the same name. Produced by Marvel Studios and distributed by Walt ..." FontSize="14" />
+                                <Label Text="{Binding Opis}" FontSize="14" LineBreakMode="TailTruncation" MaxLines="3"/>
 
-                    <Label Text="Rating: 4.5/5" FontSize="14" />
+                                <Label Text="{Binding Ocjena, StringFormat='Rating: {0}'}" FontSize="14" />
 
-                    <Label Text="Genre: Action" FontSize="14" />
-                </StackLayout>
-            </Frame>
-            <Frame BackgroundColor="#333333" Margin="15" Padding="20" CornerRadius="10">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnTap" />
-                </Frame.GestureRecognizers>
-                <StackLayout>
-                    <Image Source="https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_.jpg" Aspect="AspectFill" HeightRequest="400" />
-
-                    <Label Text="Black Panther" FontSize="18" FontAttributes="Bold" />
-
-                    <Label Text="Black Panther is a 2018 American superhero film based on the Marvel Comics character of the same name. Produced by Marvel Studios and distributed by Walt ..." FontSize="14" />
-
-                    <Label Text="Rating: 4.5/5" FontSize="14" />
-
-                    <Label Text="Genre: Action" FontSize="14" />
-                </StackLayout>
-            </Frame>
-
+                                <Label Text="{Binding Zanr, StringFormat='Genre: {0}'}" FontSize="14" />
+                                
+                            </VerticalStackLayout>
+                        </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </VerticalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>
