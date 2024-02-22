@@ -1,7 +1,8 @@
 using Microsoft.Maui.Controls;
-using Cinema.ViewModels;
 using Cinema.Data;
 using Cinema.Models;
+using Cinema.VIews;
+using Cinema.VIews.auth;
 
 namespace Cinema.Views
 {
@@ -10,7 +11,7 @@ namespace Cinema.Views
         public HomeAdminScreen()
         {
             InitializeComponent();
-            BindingContext = new ModelDodavanjeFilma(); // Set the BindingContext to an instance of NewPageViewModel
+            NavigationPage.SetHasBackButton(this, false);
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
@@ -54,8 +55,28 @@ namespace Cinema.Views
                 // Handle exception
             }
         }
+        private async void LougoutRoute(object sender, EventArgs e)
+        {
+            // Clear session data
+            ClearSessionData();
 
+            // Navigate to the login page
+            await Navigation.PushAsync(new Login());
+        }
+        private async void ClearSessionData()
+        {
 
+            Preferences.Clear(); 
+            await Navigation.PopToRootAsync();
+        }
 
+        private async void Button_Clicked_2(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new QrCodeAdmin());
+        }
+        private void Button_Clicked_3(object sender, EventArgs e)
+        {
+            ///void na na prijavu odnosno logout 
+        }
     }
 }

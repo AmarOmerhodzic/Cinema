@@ -3,6 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cinema.Views.HomeAdminScreen"
              Title="HomeAdminScreen">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="LougoutRoute">
+            <ToolbarItem.IconImageSource>
+                <FileImageSource File="logout.png"/>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ScrollView>
         <VerticalStackLayout>
             <Label 
@@ -10,7 +17,10 @@
             FontSize="Large"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-            <Button Text="Kreiraj novi film" Clicked="Button_Clicked" Margin="20" BackgroundColor="DarkGreen" TextColor="White" FontSize="Medium" HorizontalOptions="Center"/>
+            <FlexLayout JustifyContent="SpaceEvenly" Margin="15">
+                <Button Text="Kreiraj novi film" Clicked="Button_Clicked"  BackgroundColor="DarkGreen" TextColor="White" FontSize="Medium"/>
+            <Button Text="Skeniraj qr kod" Clicked="Button_Clicked_2" BackgroundColor="Gold" TextColor="White" FontSize="Medium" />
+            </FlexLayout>
 
             <Frame BackgroundColor="#333333" Margin="15" Padding="0" CornerRadius="10">
                 <Frame.GestureRecognizers>
@@ -35,7 +45,6 @@
                     </FlexLayout>
                 </StackLayout>
             </Frame>
-
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
