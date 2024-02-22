@@ -73,18 +73,37 @@ namespace Cinema.Data
         {
             try
             {
+                // Check if the film object is null
+                if (film == null)
+                {
+                    throw new ArgumentNullException(nameof(film), "Film object is null.");
+                }
+
+                // Insert the film object into the database
                 int insertedRows = await Database.InsertAsync(film);
-                return insertedRows > 0;
+
+                // Check if any rows were inserted
+                if (insertedRows > 0)
+                {
+                    return true; // Data saved successfully
+                }
+                else
+                {
+                    // No rows inserted, log a warning
+                    Console.WriteLine("Warning: No rows inserted when saving film data.");
+                    return false;
+                }
             }
             catch (Exception ex)
             {
-                // Handle exception
-                return false;
+                // Log the exception
+                Console.WriteLine($"Error in CreateFilm method: {ex.Message}");
+                return false; // Data failed to save
             }
         }
 
-        // Ažuriraj film
-        public async Task<bool> UpdateFilm(Film film)
+            // Ažuriraj film
+            public async Task<bool> UpdateFilm(Film film)
         {
             try
             {

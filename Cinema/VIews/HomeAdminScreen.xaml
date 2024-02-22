@@ -45,6 +45,7 @@
                     </FlexLayout>
                 </StackLayout>
             </Frame>
+            <Button Text="Kreiraj projekciju" Clicked="Projekcija" Margin="10" TextColor="White" BackgroundColor="DarkGreen" FontSize="Medium"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

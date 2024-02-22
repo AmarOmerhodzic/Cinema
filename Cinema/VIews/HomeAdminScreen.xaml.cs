@@ -55,13 +55,10 @@ namespace Cinema.Views
                 // Handle exception
             }
         }
-        private async void LougoutRoute(object sender, EventArgs e)
+        private void LougoutRoute(object sender, EventArgs e)
         {
-            // Clear session data
-            ClearSessionData();
-
-            // Navigate to the login page
-            await Navigation.PushAsync(new Login());
+            Preferences.Clear();
+            Application.Current.MainPage = new NavigationPage(new Login());
         }
         private async void ClearSessionData()
         {
@@ -74,9 +71,11 @@ namespace Cinema.Views
         {
             await Navigation.PushAsync(new QrCodeAdmin());
         }
-        private void Button_Clicked_3(object sender, EventArgs e)
+        private async void Projekcija(object sender, EventArgs e)
         {
-            ///void na na prijavu odnosno logout 
+            await Navigation.PushAsync(new DodavanjeProjekcije());
         }
+
+
     }
 }
