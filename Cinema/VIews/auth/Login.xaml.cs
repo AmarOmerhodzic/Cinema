@@ -31,8 +31,8 @@ public partial class Login : ContentPage
             // Provjera uloge korisnika
             if (korisnik.Uloga == Uloga.Admin)
             {
-                string bijesanToken = "bijesantoken";
-                Preferences.Set("AuthToken", bijesanToken);
+                string bijesanToken = "bijesanadmintoken";
+                Preferences.Set("AdminAuthToken", bijesanToken);
                 // Ako je uloga korisnika admin, preusmjeri ga na HomeAdmin
                 await Navigation.PushAsync(new HomeAdminScreen());
             }

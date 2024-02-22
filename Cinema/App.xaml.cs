@@ -1,4 +1,5 @@
-﻿using Cinema.VIews;
+﻿using Cinema.Views;
+using Cinema.VIews;
 using Cinema.VIews.auth;
 
 namespace Cinema
@@ -9,10 +10,15 @@ namespace Cinema
         {
             InitializeComponent();
             string token = Preferences.Get("AuthToken", string.Empty);
+            string adminToken = Preferences.Get("AdminAuthToken", string.Empty);
             if (!string.IsNullOrWhiteSpace(token))
             {
                 MainPage = new NavigationPage(new HomeScreen());
+            }else if (!string.IsNullOrWhiteSpace(adminToken))
+            {
+                MainPage = new NavigationPage(new HomeAdminScreen());
             }
+            
             else
             {
                 MainPage = new NavigationPage(new Login());
