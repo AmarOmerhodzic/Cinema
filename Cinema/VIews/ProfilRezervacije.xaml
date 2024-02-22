@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cinema.VIews.ProfilRezervacije"
+             Title="Profil">
+    <ScrollView>
+        <VerticalStackLayout>
+        <Frame BackgroundColor="#333333" Margin="15" Padding="10" CornerRadius="10">
+            <!--<Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnTap" />
+            </Frame.GestureRecognizers>-->
+            <Grid Padding="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <VerticalStackLayout Grid.Column="0">
+                    <Label Text="Black Panther" FontSize="18" FontAttributes="Bold" />
+                    <Label Text="Datum: 30.02.2024." FontSize="14" />
+                    <Label Text="Trajanje: 2h30m" FontSize="14" />
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="White">
+                    <Image Source="qrkod.png" WidthRequest="50" HeightRequest="50" />
+                </VerticalStackLayout>
+            </Grid>
+        </Frame>
+            <Button Text="Logout" BackgroundColor="#FF5733" TextColor="White" Margin="15" Clicked="Logout"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

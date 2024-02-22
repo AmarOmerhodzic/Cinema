@@ -3,12 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cinema.VIews.DetaljiFilmaPage"
              Title="Detalji Filma">
+    <ScrollView>
     <VerticalStackLayout>
-        <Label Text="Test"/>
-        <WebView Source="https://www.youtube.com/embed/xjDjIWPwcPU?si=RM2YG8A1e2Qx8xCY"
+        
+            <StackLayout Padding="20">
+            <!-- Movie Poster -->
+            <Image Source="https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_.jpg" Aspect="AspectFit" HeightRequest="400" Margin="0,0,0,20"/>
+
+            <!-- Title -->
+            <Label Text="Title of the Movie" FontSize="24" FontAttributes="Bold" Margin="0,0,0,10"/>
+
+            <!-- Description -->
+            <Label Text="Description of the movie goes here..." FontSize="16" Margin="0,0,0,10"/>
+
+            <!-- Rating -->
+            <Label Text="Rating: PG-13" FontSize="16" Margin="0,0,0,10"/>
+
+            <!-- Genre -->
+            <Label Text="Genre: Action, Adventure" FontSize="16" Margin="0,0,0,10"/>
+
+            <!-- Trailer -->
+            <WebView Source="https://www.youtube.com/embed/xjDjIWPwcPU?si=RM2YG8A1e2Qx8xCY"
                  WidthRequest="300"
                  HeightRequest="200"
                  VerticalOptions="Center"
                  HorizontalOptions="Center" />
+
+            <Button Text="Reserve Ticket" Clicked="OnReserveTicketClicked" BackgroundColor="#007bff" TextColor="White" Margin="0,20,0,10"/>
+
+            </StackLayout>
+            
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

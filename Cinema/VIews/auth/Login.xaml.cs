@@ -1,5 +1,6 @@
 using Cinema.Data;
 using Cinema.Models;
+using Cinema.Views;
 
 namespace Cinema.VIews.auth;
 
@@ -26,14 +27,22 @@ public partial class Login : ContentPage
 
         if (korisnik != null)
         {
+
             // Provjera uloge korisnika
             if (korisnik.Uloga == Uloga.Admin)
             {
+                string bijesanToken = "bijesantoken";
+                Preferences.Set("AuthToken", bijesanToken);
                 // Ako je uloga korisnika admin, preusmjeri ga na HomeAdmin
-                await Navigation.PushAsync(new Views.HomeAdminScreen());
+                await Navigation.PushAsync(new HomeAdminScreen());
             }
             else
             {
+                // sacuvaj username korisnika
+                string userPrefrence = korisnik.KorisnickoIme;
+                Preferences.Set("Username", userPrefrence);
+                string bijesanToken = "bijesantoken";
+                Preferences.Set("AuthToken", bijesanToken);
                 // Inace, preusmjeri ga na HomeScreen
                 await Navigation.PushAsync(new HomeScreen());
             }
