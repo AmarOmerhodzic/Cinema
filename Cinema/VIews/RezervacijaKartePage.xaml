@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cinema.VIews.RezervacijaKartePage"
+             Title="Rezervacija Karte">
+    <VerticalStackLayout>
+        <StackLayout Padding="20">
+            <!-- Screening Time Selection -->
+            <Picker Title="Select Screening Time">
+                <Picker.ItemsSource>
+                    <!-- Populate with available screening times -->
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>10:00 AM</x:String>
+                        <x:String>2:00 PM</x:String>
+                        <x:String>6:00 PM</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <!-- Seating Layout -->
+            <Label Text="Select Your Seat:" FontSize="Large" Margin="0,20,0,10" />
+            <!-- Replace with your custom seating layout -->
+            <!-- For simplicity, I'm using buttons to represent seats -->
+            <Grid HorizontalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Button Text="A1" Grid.Row="0" Grid.Column="0" Margin="5" Clicked="OnSeatSelected" />
+                <Button Text="A2" Grid.Row="0" Grid.Column="1" Margin="5" Clicked="OnSeatSelected" />
+                <Button Text="A3" Grid.Row="0" Grid.Column="2" Margin="5" Clicked="OnSeatSelected" />
+                <Button Text="A4" Grid.Row="0" Grid.Column="3" Margin="5" Clicked="OnSeatSelected" />
+                <Button Text="A5" Grid.Row="0" Grid.Column="4" Margin="5" Clicked="OnSeatSelected" />
+                
+
+                <Button Text="B1" Grid.Row="1" Grid.Column="0" Margin="5" Clicked="OnSeatSelected" />
+                <Button Text="B2" Grid.Row="1" Grid.Column="1" Margin="5" Clicked="OnSeatSelected" />
+                <Button Text="B3" Grid.Row="1" Grid.Column="2" Margin="5" Clicked="OnSeatSelected" />
+                <Button Text="B4" Grid.Row="1" Grid.Column="3" Margin="5" Clicked="OnSeatSelected" />
+                <Button Text="B5" Grid.Row="1" Grid.Column="4" Margin="5" Clicked="OnSeatSelected" />
+                
+                <!-- Add more buttons for other seats -->
+                <!-- Example: <Button Text="A3" Grid.Row="0" Grid.Column="2" Margin="5" Clicked="OnSeatSelected" /> -->
+                <!-- Repeat for other rows and columns -->
+            </Grid>
+            <Label x:Name="selectedSeatLabel" FontSize="Medium" Margin="0,20,0,0" TextColor="White"/>
+            <Frame BorderColor="LightSlateGray"
+                   BackgroundColor="White"
+                   Padding="10">
+                <Image
+                x:Name="QrCodeImage"
+                HeightRequest="200"
+                WidthRequest="200"/>
+            </Frame>
+            <!-- Button to Confirm Booking -->
+            <Button Text="Confirm Booking" Clicked="OnConfirmBookingClicked" BackgroundColor="#007bff" TextColor="White" Margin="0,20,0,0"/>
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>
