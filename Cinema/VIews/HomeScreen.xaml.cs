@@ -66,9 +66,12 @@ public partial class HomeScreen : ContentPage
         
         
     }
+
+    
     private async void OnClearFilterClicked(object sender, EventArgs e)
     {
         zanrPicker.SelectedItem = null;
+        sortingLabel.Text = null;
         await UpdateListView();
     }
 
@@ -77,4 +80,23 @@ public partial class HomeScreen : ContentPage
         FilmDatabase database = await FilmDatabase.Instance;
         listView.ItemsSource = await database.GetFilmoviPoZanru(genre);
     }
+    private bool isRatingAscending = true;
+    private async void OnOrderByRatingClicked(object sender, EventArgs e)
+    {
+        
+        isRatingAscending = !isRatingAscending;
+        sortingLabel.Text = isRatingAscending ? "Ascending" : "Descending";
+        FilmDatabase database = await FilmDatabase.Instance;
+        List<Film>filmovi = await database.SviFilmovi();
+
+        if (isRatingAscending)
+        {
+            listView.ItemsSource = filmovi.OrderBy(movie => movie.Ocjena).ToList();
+        }
+        else
+        {
+            listView.ItemsSource = filmovi.OrderByDescending(movie => movie.Ocjena).ToList();
+        }
+    }
+
 }

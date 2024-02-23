@@ -9,6 +9,7 @@ namespace Cinema
         public App()
         {
             InitializeComponent();
+            Application.Current.UserAppTheme = AppTheme.Dark;
             string token = Preferences.Get("AuthToken", string.Empty);
             string adminToken = Preferences.Get("AdminAuthToken", string.Empty);
             if (!string.IsNullOrWhiteSpace(token))
