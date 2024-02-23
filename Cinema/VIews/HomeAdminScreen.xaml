@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Cinema.Views.HomeAdminScreen"
-             Title="HomeAdminScreen">
+             Title="Admin Home">
     <ContentPage.ToolbarItems>
         <ToolbarItem Clicked="LougoutRoute">
             <ToolbarItem.IconImageSource>
@@ -28,8 +28,8 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-
-                                <Frame BackgroundColor="#333333" Margin="15" Padding="20" CornerRadius="10">
+                                <Grid>
+                                    <Frame BackgroundColor="#333333" Margin="15" Padding="20" CornerRadius="10">
 
                                     <VerticalStackLayout>
                                         <Image Source="{Binding Slika}" Aspect="AspectFill" HeightRequest="400" />
@@ -49,6 +49,7 @@
 
                                     </VerticalStackLayout>
                                 </Frame>
+                                </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
