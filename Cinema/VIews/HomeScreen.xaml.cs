@@ -41,8 +41,10 @@ public partial class HomeScreen : ContentPage
     }
 
 
+
     private async void ProfilRoute(object sender, System.EventArgs e)
     {
+        zanrPicker.SelectedItem = null;
         await Navigation.PushAsync(new ProfilRezervacije());
     }
 
@@ -50,10 +52,29 @@ public partial class HomeScreen : ContentPage
     {
         if (e.SelectedItem != null)
         {
+            zanrPicker.SelectedItem = null;
             await Navigation.PushAsync(new DetaljiFilmaPage
             {
                 BindingContext = e.SelectedItem as Film
             });
         }
+    }
+    private async void OnGenreSelectedIndexChanged(object sender, EventArgs e)
+    {
+        string selectedGenre = zanrPicker.SelectedItem as string;
+        await FilterFilmsByGenre(selectedGenre);
+        
+        
+    }
+    private async void OnClearFilterClicked(object sender, EventArgs e)
+    {
+        zanrPicker.SelectedItem = null;
+        await UpdateListView();
+    }
+
+    private async Task FilterFilmsByGenre(string genre)
+    {
+        FilmDatabase database = await FilmDatabase.Instance;
+        listView.ItemsSource = await database.GetFilmoviPoZanru(genre);
     }
 }

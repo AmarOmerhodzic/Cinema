@@ -142,6 +142,20 @@ namespace Cinema.Data
                 8.5,
                 "https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/black-panther-web.jpg");
         }
+        // Dohvati filmove po žanru
+        public async Task<List<Film>> GetFilmoviPoZanru(string zanr)
+        {
+            try
+            {
+                return await Database.Table<Film>().Where(f => f.Zanr == zanr).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                // Handle exception
+                return null;
+            }
+        }
+
 
     }
 }
