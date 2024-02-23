@@ -64,6 +64,10 @@ public partial class ProfilRezervacije : ContentPage
     }
     private async void onSelect(object sender, SelectedItemChangedEventArgs e)
     {
-        
+        if (e.SelectedItem == null)
+            return;
+
+        var selectedModel = e.SelectedItem as ProfilRezervacijeModel;
+        await Navigation.PushAsync(new QRCodeRezervacija(selectedModel.RezervacijaId));
     }
 }
