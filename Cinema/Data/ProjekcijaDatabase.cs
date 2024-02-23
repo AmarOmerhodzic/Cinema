@@ -106,6 +106,33 @@ namespace Cinema.Data
                 return false;
             }
         }
+        public async Task<List<Projekcija>> GetProjekcijePoFilmId(int filmId)
+        {
+            try
+            {
+                // Dohvati sve projekcije za određeni FilmId
+                return await Database.Table<Projekcija>().Where(p => p.FilmId == filmId).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                // Handle exception
+                return null;
+            }
+        }
+        public async Task<Projekcija> GetProjekcijuPoId(int projekcijaId)
+        {
+            try
+            {
+                // Dohvati sve projekcije za određeni FilmId
+                return await Database.Table<Projekcija>().Where(p => p.Id == projekcijaId).FirstOrDefaultAsync();
+            }
+            catch (Exception ex)
+            {
+                // Handle exception
+                return null;
+            }
+        }
+
 
     }
 }

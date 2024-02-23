@@ -33,7 +33,7 @@ public partial class Registracija : ContentPage
         {
             KorisnickoIme = email,
             Lozinka = password,
-            StanjeNaRacunu = 0, // Mozete postaviti inicijalno stanje racuna po potrebi
+            StanjeNaRacunu = 20, // Mozete postaviti inicijalno stanje racuna po potrebi
             Uloga = Uloga.Korisnik // Mozete postaviti ulogu korisnika po potrebi
         };
 
@@ -43,7 +43,7 @@ public partial class Registracija : ContentPage
 
         if (registracijaUspjesna)
         {
-            await DisplayAlert("Success", "Registration successful!", "OK");
+            await DisplayAlert("Success", "Registration successful!, You recieved 20$ bonus for registration", "OK");
             // Nakon uspjesne registracije, mozete preusmjeriti korisnika na ekran prijave ili obaviti druge radnje
             // For example:
              await Navigation.PopAsync(); // Povratak na ekran prijave

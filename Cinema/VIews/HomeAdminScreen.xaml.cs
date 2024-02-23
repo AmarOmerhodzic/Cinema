@@ -13,6 +13,18 @@ namespace Cinema.Views
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, false);
         }
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await UpdateListView();
+        }
+
+        private async Task UpdateListView()
+        {
+            FilmDatabase database = await FilmDatabase.Instance;
+            //await database.UnosTest();
+            listView.ItemsSource = await database.SviFilmovi();
+        }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
@@ -40,7 +52,7 @@ namespace Cinema.Views
                 {
                     // Deletion successful
                     await DisplayAlert("Success", "Film successfully deleted.", "OK");
-                    // You may want to update UI or perform any other action
+                    await UpdateListView();
                 }
                 else
                 {
