@@ -35,8 +35,18 @@ namespace Cinema.Data
         }
         public async Task<int> CreateRezervaciju(Rezervacije rezervacija)
         {
-            return await Database.InsertAsync(rezervacija);
+            try
+            {
+                int insertedReservationId = await Database.InsertAsync(rezervacija);
+                return insertedReservationId;
+            }
+            catch (Exception ex)
+            {
+                // Handle exception
+                return -1; // Return a default value or handle the exception according to your application logic
+            }
         }
+
 
         public async Task<List<Rezervacije>> GetRezervaciju()
         {
@@ -47,5 +57,46 @@ namespace Cinema.Data
         {
             return await Database.Table<Rezervacije>().Where(r => r.Id == id).FirstOrDefaultAsync();
         }
+        public async Task<bool> DeleteRezervaciju(int id)
+        {
+            try
+            {
+                // Find the reservation with the specified ID
+                var reservation = await GetRezervacijuPoId(id);
+
+                if (reservation != null)
+                {
+                    // Delete the reservation
+                    int deletedRows = await Database.DeleteAsync(reservation);
+                    return deletedRows > 0;
+                }
+                else
+                {
+                    // Reservation with the specified ID was not found
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exception
+                return false;
+            }
+        }
+        public async Task<List<Rezervacije>> GetRezervacijePoKorisnikId(int korisnikId)
+        {
+            try
+            {
+                // Find all reservations for the specified korisnikId that are active
+                return await Database.Table<Rezervacije>()
+                                       .Where(r => r.KorisnikId == korisnikId && r.Status == StatusRezervacije.aktivna)
+                                       .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                // Handle exception
+                return null;
+            }
+        }
+
     }
 }

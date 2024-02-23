@@ -80,5 +80,46 @@ namespace Cinema.Data
                 return null;
             }
         }
+        public async Task<bool> AzurirajStanjeNaRacunu(int korisnikId, double cijena)
+        {
+            try
+            {
+                // Pronađi korisnika s odgovarajućim ID-om
+                var korisnik = await Database.Table<Korisnik>().Where(x => x.Id == korisnikId).FirstOrDefaultAsync();
+
+                if (korisnik != null)
+                {
+                    // Provjeri je li stanje na računu veće od cijene
+                    if (korisnik.StanjeNaRacunu >= cijena)
+                    {
+                        // Oduzmi cijenu od stanja na računu
+                        korisnik.StanjeNaRacunu -= cijena;
+
+                        // Ažuriraj korisnika u bazi podataka
+                        int updatedRows = await Database.UpdateAsync(korisnik);
+
+                        // Provjeri jesu li redci uspješno ažurirani
+                        return updatedRows > 0;
+                    }
+                    else
+                    {
+                        // Stanje na računu je manje od cijene - vrati error
+                        return false;
+                    }
+                }
+                else
+                {
+                    // Korisnik s odgovarajućim ID-om nije pronađen
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exception
+                return false;
+            }
+        }
+
+
     }
 }

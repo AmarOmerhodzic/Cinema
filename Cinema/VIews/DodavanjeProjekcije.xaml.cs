@@ -7,9 +7,37 @@ namespace Cinema.Views
 {
     public partial class DodavanjeProjekcije : ContentPage
     {
+        private Dictionary<string, int> filmIdMap;
+
+        private int filmId;
         public DodavanjeProjekcije()
         {
             InitializeComponent();
+            InitializeAsync();
+        }
+        private async void InitializeAsync()
+        {
+            await LoadFilms();
+        }
+        private async Task LoadFilms()
+        {
+            filmIdMap = new Dictionary<string, int>(); // Initialize the dictionary
+            FilmDatabase database = await FilmDatabase.Instance;
+            var films = await database.SviFilmovi();
+            FilmPicker.ItemsSource = films;
+           /* foreach (var film in films)
+            {
+                FilmPicker.Items.Add(film.Naziv); // Assuming film.Naziv is the name of the film
+                filmIdMap.Add(film.Naziv, film.Id); // Add film name and ID to the dictionary
+            }
+            */
+        }
+        private void FilmPicker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedFilmName = (Film)FilmPicker.SelectedItem;
+            // Get the ID of the selected film using the dictionary
+            filmId = selectedFilmName.Id;
+            
         }
 
         private async void SaveButton_Click(object sender, EventArgs e)
@@ -17,7 +45,7 @@ namespace Cinema.Views
             // Create a new Projekcija object with user input
             Projekcija projekcija = new Projekcija
             {
-                FilmId = int.Parse(FilmIdEntry.Text),
+                FilmId = filmId,
                 DatumVrijeme = DatumVrijemePicker.Date,
                 BrojKarata = string.IsNullOrEmpty(BrojKarataEntry.Text) ? null : (int?)int.Parse(BrojKarataEntry.Text),
                 Cijena = double.Parse(CijenaEntry.Text)
@@ -30,7 +58,7 @@ namespace Cinema.Views
             if (success)
             {
                 await DisplayAlert("Success", "Projekcija successfully saved.", "OK");
-                // You can add navigation logic here to navigate to another page if needed.
+                await Navigation.PushAsync(new HomeAdminScreen());
             }
             else
             {

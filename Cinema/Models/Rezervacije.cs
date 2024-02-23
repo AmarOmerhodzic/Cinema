@@ -17,6 +17,8 @@ namespace Cinema.Models
         [ForeignKey(typeof(Projekcija))]
         public int ProjekcijaId { get; set; }
         public StatusRezervacije Status { get; set; }
+        public string Sjediste { get; set; }
+
 
     }
 }

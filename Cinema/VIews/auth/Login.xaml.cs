@@ -41,6 +41,12 @@ public partial class Login : ContentPage
                 // sacuvaj username korisnika
                 string userPrefrence = korisnik.KorisnickoIme;
                 Preferences.Set("Username", userPrefrence);
+                // sacuvaj Id korisnika
+                int userIdPrefrence = korisnik.Id;
+                Preferences.Set("UserId", userIdPrefrence);
+                // sacuvaj stanjeNaRacunu korisnika
+                double userRacunPrefrence = korisnik.StanjeNaRacunu;
+                Preferences.Set("UserRacun", userRacunPrefrence);
                 string bijesanToken = "bijesantoken";
                 Preferences.Set("AuthToken", bijesanToken);
                 // Inace, preusmjeri ga na HomeScreen
