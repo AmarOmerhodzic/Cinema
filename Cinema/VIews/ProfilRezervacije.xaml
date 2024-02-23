@@ -19,45 +19,26 @@
             Margin="0,10,0,10"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <Frame BackgroundColor="#333333" Margin="15" Padding="10" CornerRadius="10">
-            <!--<Frame.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnTap" />
-            </Frame.GestureRecognizers>-->
-            <Grid Padding="5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-
-                <VerticalStackLayout Grid.Column="0">
-                    <Label Text="Black Panther" FontSize="18" FontAttributes="Bold" />
-                    <Label Text="Datum: 30.02.2024." FontSize="14" />
-                    <Label Text="Trajanje: 2h30m" FontSize="14" />
-                </VerticalStackLayout>
-
-                <VerticalStackLayout Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="White">
-                    <Image Source="qrkod.png" WidthRequest="50" HeightRequest="50" />
-                </VerticalStackLayout>
-            </Grid>
-        </Frame>
+        
             <VerticalStackLayout>
-                <ListView x:Name="listView" Margin="10" RowHeight="200" SeparatorVisibility="None" ItemSelected="onSelect"  VerticalScrollBarVisibility="Never">
+                <ListView x:Name="listView" Margin="10" RowHeight="150" SeparatorVisibility="None" ItemSelected="onSelect"  VerticalScrollBarVisibility="Never">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-
-                                <Frame BackgroundColor="#333333" Margin="15" Padding="20" CornerRadius="10">
+                                <Grid>
+                                    <Frame BackgroundColor="#333333" Margin="15" Padding="20" CornerRadius="10">
 
                                     <VerticalStackLayout>
-                                        <Label Text="Datum:" FontSize="14" />
-                                        <Label Text="{Binding DatumVrijeme}" FontSize="14" LineBreakMode="TailTruncation" MaxLines="3"/>
-                                        <Label Text="Sjediste:" FontSize="14" />
-                                        <Label Text="{Binding Sjediste}" FontSize="14" LineBreakMode="TailTruncation" MaxLines="3"/>
 
-                                        <Label Text="Kliknite da generisete qr kod:" FontSize="18" />
+
+                                            <Label Text="{Binding DatumVrijeme, StringFormat='Datum: {0}'}" FontSize="14"/>
+                                            <Label Text="{Binding Sjediste, StringFormat='Datum: {0}'}" FontSize="14"/>
+
+                                        <Label Text="Kliknite da generisete qr kod" FontSize="18" />
 
                                     </VerticalStackLayout>
                                 </Frame>
+                                </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
