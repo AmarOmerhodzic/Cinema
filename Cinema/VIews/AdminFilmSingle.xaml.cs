@@ -11,7 +11,26 @@ namespace Cinema.Views
         public NewPage1()
         {
             InitializeComponent();
-            BindingContext = this;
+            SetupValidation();
+        }
+
+        private void SetupValidation()
+        {
+            OcjenaEntry.TextChanged += (sender, e) =>
+            {
+                if (sender is Entry entry)
+                {
+                    if (!string.IsNullOrEmpty(entry.Text) &&
+                        (!double.TryParse(entry.Text, out double value) || value < 0 || value > 5))
+                    {
+                        // Display message
+                        DisplayAlert("Error", "Please enter a value between 0 and 5.", "OK");
+
+                        // Clear the text or set it to the nearest valid value
+                        entry.Text = "";
+                    }
+                }
+            };
         }
 
         private async void SaveButton_Clicked(object sender, EventArgs e)
@@ -26,9 +45,23 @@ namespace Cinema.Views
                 Opis = OpisFilmaEntry.Text,
                 Zanr = ZanrPicker.SelectedItem?.ToString(),
                 Trajanje = Convert.ToInt32(TrajanjeEntry.Text),
-                Trailer = TrailerUrlEntry.Text,
-                Ocjena = Convert.ToDouble(OcjenaEntry.Text)
+                Trailer = TrailerUrlEntry.Text
             };
+
+            // Validate and set Ocjena
+            if (!string.IsNullOrEmpty(OcjenaEntry.Text) && double.TryParse(OcjenaEntry.Text, out double ocjenaValue))
+            {
+                if (ocjenaValue >= 0 && ocjenaValue <= 5)
+                {
+                    film.Ocjena = ocjenaValue;
+                }
+                else
+                {
+                    // Display message
+                    await DisplayAlert("Error", "Please enter a value between 0 and 5.", "OK");
+                    return;
+                }
+            }
 
             // Save the film to the database
             bool success = await filmDatabase.CreateFilm(film);
@@ -39,7 +72,6 @@ namespace Cinema.Views
                 await DisplayAlert("Success", "Film saved successfully.", "OK");
 
                 await Navigation.PushAsync(new HomeAdminScreen());
-
             }
             else
             {

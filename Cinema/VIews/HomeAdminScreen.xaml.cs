@@ -88,6 +88,15 @@ namespace Cinema.Views
             await Navigation.PushAsync(new DodavanjeProjekcije());
         }
 
+        private async void EditButton_Clicked(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            var film = button?.BindingContext as Film;
 
+            if (film != null)
+            {
+                await Navigation.PushAsync(new EditPage(film));
+            }
+        }
     }
 }
