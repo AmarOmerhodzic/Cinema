@@ -1,0 +1,37 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cinema.VIews.EditPage"
+             Title="EditPage">
+    <ContentPage.Content>
+        <VerticalStackLayout>
+            <StackLayout Padding="10">
+                <Label Text="Unesite podatke o filmu" FontSize="Large" HorizontalOptions="Center" Margin="15"/>
+                <Label Text="Unesite URL slike" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
+                <Entry x:Name="ImageUrlEntry" Placeholder="Image url" Text="{Binding Slika}" />
+                <Label Text="Unesite naziv filma" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
+                <Entry x:Name="NazivFilmaEntry" Placeholder="Naziv filma" Text="{Binding Naziv}" />
+                <Label Text="Unesite Opis filma" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
+                <Entry x:Name="OpisFilmaEntry" Placeholder="Opis filma" Text="{Binding Opis}" />
+                <Label Text="Unesite Žanr" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
+                <Picker x:Name="ZanrPicker" Title="Žanr" SelectedItem="{Binding Zanr, Mode=TwoWay}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Akcija</x:String>
+                            <x:String>Avantura</x:String>
+                            <x:String>Komedija</x:String>
+                            <x:String>Drama</x:String>
+                            <x:String>Horor</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Text="UnesiteTrajanje (min)" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
+                <Entry x:Name="TrajanjeEntry" Placeholder="Trajanje (min)" Keyboard="Numeric" Text="{Binding Trajanje}" />
+                <Label Text="Unesite URL Trailera" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
+                <Entry x:Name="TrailerUrlEntry" Placeholder="Trailer" Text="{Binding Trailer}" />
+                <Label Text="Unesite Ocjene" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
+                <Entry x:Name="OcjenaEntry" Placeholder="Ocjena" Keyboard="Numeric" Text="{Binding Ocjena}" />
+                <Button Text="Spremi" Clicked="SaveButton_Clicked"/>
+            </StackLayout>
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>

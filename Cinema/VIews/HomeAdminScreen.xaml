@@ -43,7 +43,7 @@
                                         <Label Text="{Binding Zanr, StringFormat='Genre: {0}'}" FontSize="14" />
 
                                         <FlexLayout JustifyContent="SpaceEvenly" Margin="10">
-                                            <Button Text="Izmjeni" BackgroundColor="DarkBlue" TextColor="White" FontSize="Medium"/>
+                                                <Button Text="Izmjeni" BackgroundColor="DarkBlue" TextColor="White" FontSize="Medium" Clicked="EditButton_Clicked"/>
                                             <Button Text="Obriši" BackgroundColor="DarkRed" TextColor="White" FontSize="Medium" Clicked="Button_Clicked_1" CommandParameter="{Binding Id}"/>
                                         </FlexLayout>
 

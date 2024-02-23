@@ -81,6 +81,9 @@
 	  <MauiXaml Update="VIews\DodavanjeProjekcije.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="VIews\EditPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="VIews\HomeAdminScreen.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
