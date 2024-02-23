@@ -14,42 +14,59 @@
     </ContentPage.ToolbarItems>
     <ScrollView>
         <VerticalStackLayout>
-        <Label 
-            x:Name="userLabel"
-            Text="Home"
-            FontSize="20"
-            Margin="0,10,0,10"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            <Label 
+                x:Name="userLabel"
+                Text="Home"
+                FontSize="20"
+                Margin="0,10,0,10"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
 
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Picker Grid.Row="0" Grid.Column="0" Margin="20,0,20,0" x:Name="zanrPicker" Title="Filter By Genre" SelectedIndexChanged="OnGenreSelectedIndexChanged">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Akcija</x:String>
+                            <x:String>Avantura</x:String>
+                            <x:String>Komedija</x:String>
+                            <x:String>Drama</x:String>
+                            <x:String>Horor</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <Button Margin="0,0,25,0" Grid.Row="0" Grid.Column="1" Text="Clear Filter" Clicked="OnClearFilterClicked" BackgroundColor="#333333" TextColor="White"/>
+            </Grid>
 
             <VerticalStackLayout>
                 <ListView x:Name="listView" Margin="10" RowHeight="550" SeparatorVisibility="None" ItemSelected="onSelect" VerticalScrollBarVisibility="Never">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            
-                            <Frame BackgroundColor="#333333" Margin="15" Padding="20" CornerRadius="10">
-                                
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Frame BackgroundColor="#333333" Margin="15" Padding="20" CornerRadius="10">
                                     <VerticalStackLayout>
-                                <Image Source="{Binding Slika}" Aspect="AspectFill" HeightRequest="400" />
-
-                                <Label Text="{Binding Naziv}" FontSize="18" FontAttributes="Bold" />
-
-                                <Label Text="{Binding Opis}" FontSize="14" LineBreakMode="TailTruncation" MaxLines="3"/>
-
-                                <Label Text="{Binding Ocjena, StringFormat='Rating: {0}'}" FontSize="14" />
-
-                                <Label Text="{Binding Zanr, StringFormat='Genre: {0}'}" FontSize="14" />
-                                
-                            </VerticalStackLayout>
-                        </Frame>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                        <Image Source="{Binding Slika}" Aspect="AspectFill" HeightRequest="400" />
+                                        <Label Text="{Binding Naziv}" FontSize="18" FontAttributes="Bold" />
+                                        <Label Text="{Binding Opis}" FontSize="14" LineBreakMode="TailTruncation" MaxLines="3"/>
+                                        <Label Text="{Binding Ocjena, StringFormat='Rating: {0}'}" FontSize="14" />
+                                        <Label Text="{Binding Zanr, StringFormat='Genre: {0}'}" FontSize="14" />
+                                    </VerticalStackLayout>
+                                </Frame>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </VerticalStackLayout>
-
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
