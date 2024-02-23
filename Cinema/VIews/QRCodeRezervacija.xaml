@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cinema.VIews.QRCodeRezervacija"
+             Title="QRCodeRezervacija">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- Row for the image -->
+            <RowDefinition Height="Auto" />
+            <!-- Row for the buttons -->
+        </Grid.RowDefinitions>
+
+        <!-- Image -->
+        <Image x:Name="qrCodeImage"
+           HeightRequest="200"
+           HorizontalOptions="Center"
+           Grid.Row="0" />
+
+        <!-- Buttons -->
+        <StackLayout Orientation="Horizontal" 
+                 HorizontalOptions="Center" 
+                 Grid.Row="1">
+            <Button x:Name="CounterBtn"
+                Text="Generate QR Code"
+                Clicked="OnButtonClicked" />
+            <Button Text="Return to Profil"
+                Clicked="OnReturnButtonClicked" />
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

@@ -54,7 +54,7 @@
                                         <Label Text="Sjediste:" FontSize="14" />
                                         <Label Text="{Binding Sjediste}" FontSize="14" LineBreakMode="TailTruncation" MaxLines="3"/>
 
-                                        <Image Source="qrkod.png" WidthRequest="50" HeightRequest="50" />
+                                        <Label Text="Kliknite da generisete qr kod:" FontSize="18" />
 
                                     </VerticalStackLayout>
                                 </Frame>
