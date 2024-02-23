@@ -27,7 +27,7 @@ namespace Cinema.Views
                 Zanr = ZanrPicker.SelectedItem?.ToString(),
                 Trajanje = Convert.ToInt32(TrajanjeEntry.Text),
                 Trailer = TrailerUrlEntry.Text,
-                Ocjena = Convert.ToInt32(OcjenaEntry.Text)
+                Ocjena = Convert.ToDouble(OcjenaEntry.Text)
             };
 
             // Save the film to the database

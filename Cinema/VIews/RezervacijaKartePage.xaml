@@ -6,16 +6,7 @@
     <VerticalStackLayout>
         <StackLayout Padding="20">
             <!-- Screening Time Selection -->
-            <Picker Title="Select Screening Time">
-                <Picker.ItemsSource>
-                    <!-- Populate with available screening times -->
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>10:00 AM</x:String>
-                        <x:String>2:00 PM</x:String>
-                        <x:String>6:00 PM</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
+            <Picker x:Name="ProjekcijePicker" Title="Odaberi projekciju" ItemDisplayBinding="{Binding DatumVrijeme}" SelectedIndexChanged="FilmPicker_SelectedIndexChanged"/>
 
             <!-- Seating Layout -->
             <Label Text="Select Your Seat:" FontSize="Large" Margin="0,20,0,10" />
@@ -54,14 +45,7 @@
                 <!-- Repeat for other rows and columns -->
             </Grid>
             <Label x:Name="selectedSeatLabel" FontSize="Medium" Margin="0,20,0,0" TextColor="White"/>
-            <Frame BorderColor="LightSlateGray"
-                   BackgroundColor="White"
-                   Padding="10">
-                <Image
-                x:Name="QrCodeImage"
-                HeightRequest="200"
-                WidthRequest="200"/>
-            </Frame>
+            
             <!-- Button to Confirm Booking -->
             <Button Text="Confirm Booking" Clicked="OnConfirmBookingClicked" BackgroundColor="#007bff" TextColor="White" Margin="0,20,0,0"/>
         </StackLayout>

@@ -3,8 +3,8 @@
              x:Class="Cinema.Views.DodavanjeProjekcije"
              Title="DodavanjeProjekcije">
     <StackLayout>
-        <Label Text="Unesi Film ID" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
-        <Entry x:Name="FilmIdEntry" Placeholder="Film ID"/>
+        <Label Text="Odaberi film" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
+        <Picker x:Name="FilmPicker" Title="Odaberi film" ItemDisplayBinding="{Binding Naziv}" SelectedIndexChanged="FilmPicker_SelectedIndexChanged"/>
 
         <Label Text="Unesi Datum i vrijeme projekcije" FontSize="Small" HorizontalOptions="Start" Padding="2"/>
         <DatePicker x:Name="DatumVrijemePicker" />

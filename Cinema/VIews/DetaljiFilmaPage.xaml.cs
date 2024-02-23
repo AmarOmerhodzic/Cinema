@@ -1,3 +1,5 @@
+using Cinema.Models;
+
 namespace Cinema.VIews;
 
 public partial class DetaljiFilmaPage : ContentPage
@@ -11,6 +13,10 @@ public partial class DetaljiFilmaPage : ContentPage
     }
     private async void OnReserveTicketClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new RezervacijaKartePage());
+        if (BindingContext is Film selectedFilm)
+        {
+            // Pass the filmId as a parameter when navigating to the RezervacijaKartePage
+            await Navigation.PushAsync(new RezervacijaKartePage(selectedFilm.Id));
+        }
     }
 }

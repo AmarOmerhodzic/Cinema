@@ -22,29 +22,38 @@
             <Button Text="Skeniraj qr kod" Clicked="Button_Clicked_2" BackgroundColor="Gold" TextColor="White" FontSize="Medium" />
             </FlexLayout>
 
-            <Frame BackgroundColor="#333333" Margin="15" Padding="0" CornerRadius="10">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer/>
-                </Frame.GestureRecognizers>
-                <StackLayout>
-                    <Image Source="{Binding ImageUrl}" Aspect="AspectFill" HeightRequest="200" />
+           
+            <VerticalStackLayout>
+                <ListView x:Name="listView" Margin="10" RowHeight="650" SeparatorVisibility="None"  VerticalScrollBarVisibility="Never">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
 
-                    <Label Text="{Binding Film.Naziv}" FontSize="22" FontAttributes="Bold" Margin="10"/>
+                                <Frame BackgroundColor="#333333" Margin="15" Padding="20" CornerRadius="10">
 
-                    <Label Text="{Binding Film.Opis}" FontSize="14" Margin="10"/>
+                                    <VerticalStackLayout>
+                                        <Image Source="{Binding Slika}" Aspect="AspectFill" HeightRequest="400" />
 
-                    <Label Text="{Binding Film.Ocjena, StringFormat='Rating: {0:F1}/5'}" FontSize="14" Margin="10"/>
+                                        <Label Text="{Binding Naziv}" FontSize="18" FontAttributes="Bold" />
 
-                    <Label Text="{Binding Film.Zanr}" FontSize="14" Margin="10"/>
+                                        <Label Text="{Binding Opis}" FontSize="14" LineBreakMode="TailTruncation" MaxLines="3"/>
 
-                    <!-- Add additional labels/buttons as needed -->
+                                        <Label Text="{Binding Ocjena, StringFormat='Rating: {0}'}" FontSize="14" />
 
-                    <FlexLayout JustifyContent="SpaceEvenly" Margin="10">
-                        <Button Text="Izmjeni" BackgroundColor="DarkBlue" TextColor="White" FontSize="Medium"/>
-                        <Button Text="Obriši" BackgroundColor="DarkRed" TextColor="White" FontSize="Medium" Clicked="Button_Clicked_1" CommandParameter="{Binding Film.Id}"/>
-                    </FlexLayout>
-                </StackLayout>
-            </Frame>
+                                        <Label Text="{Binding Zanr, StringFormat='Genre: {0}'}" FontSize="14" />
+
+                                        <FlexLayout JustifyContent="SpaceEvenly" Margin="10">
+                                            <Button Text="Izmjeni" BackgroundColor="DarkBlue" TextColor="White" FontSize="Medium"/>
+                                            <Button Text="Obriši" BackgroundColor="DarkRed" TextColor="White" FontSize="Medium" Clicked="Button_Clicked_1" CommandParameter="{Binding Id}"/>
+                                        </FlexLayout>
+
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </VerticalStackLayout>
             <Button Text="Kreiraj projekciju" Clicked="Projekcija" Margin="10" TextColor="White" BackgroundColor="DarkGreen" FontSize="Medium"/>
         </VerticalStackLayout>
     </ScrollView>
